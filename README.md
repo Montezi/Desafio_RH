@@ -57,12 +57,11 @@ NÃO É NECESSÁRIO FAZER A OPÇÃO DE EDITAR DE NENHUM DOS OBJETOS.
 ```
 ### Testando a aplicação
  * Para testar a aplicação no ambiente de desenvolvimento você pode executar o comando:
- ` ``
+ ```
+   bin/cake server
  
- bin/cake server
- 
- ` ` ` 
- 
+ ```
+  
  * Para acessar a aplicação digite o endereço: http://localhost:8765.
  * Realize o cadastro de alguns funcionários clicando no botão "Novo Funcionário".
  * Após a inserção dos dados, será possível visualizar os dados do Funcionário ou excluir.
