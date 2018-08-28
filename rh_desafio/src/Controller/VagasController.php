@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\ConnectionManager;
 
 
 
@@ -26,6 +27,7 @@ class VagasController extends AppController {
 
 
         $this->set(compact('vagas'));
+
        // $this->set(compact('funcionarios'));
 
     }
@@ -109,7 +111,25 @@ class VagasController extends AppController {
     public function view($id = null ){
 
         $vaga = $this->Vagas->get($id);
+        $conn = ConnectionManager::get('default');
+         $stmt = $conn->execute('SELECT
+        funcionario.nome
+        FROM rh.vagas INNER JOIN rh.responsavel_vaga
+        ON vagas.idvagas=responsavel_vaga.id_vaga
+        INNER JOIN rh.funcionario
+        ON funcionario.idfuncionario =responsavel_vaga.id_funcionario
+        WHERE vagas.idvagas = :id',['id' => $id]);
+
+       // echo var_dump($id);
+        /* $stmt =$conn->execute('SELECT * FROM responsavel_vaga WHERE id_vaga = :id',['id' => $id]); */
+
+
+        $responsaveis= $stmt;
+
+
+
         $this->set(compact('vaga'));
+        $this->set(compact('responsaveis'));
 
     }
 
