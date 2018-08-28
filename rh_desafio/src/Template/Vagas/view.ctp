@@ -1,10 +1,6 @@
 <div class="content">
 <p><h3 class="text-center">Vagas</h3></p>
 <br>
-<?php
-
-     // echo var_dump($responsaveis);
-?>
 <table class="table">
     <thead>
         <tr>
