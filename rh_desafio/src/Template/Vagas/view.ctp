@@ -29,7 +29,7 @@
 
             foreach($responsaveis as $responsavel){
 
-                $resp .= trim($responsavel['nome']).",";
+                $resp .= $responsavel['nome'].",";
 
              }
              $resp = substr($resp,0,-1);
